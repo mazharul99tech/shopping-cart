@@ -44,11 +44,11 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="caseItem" type="text" class="form-control text-center" value="1">
+                           <button id="caseBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="casePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -79,24 +79,11 @@
    </section>
 
    <script>
+      //iPhone button event handler
       const phoneBtn = document.getElementById('phoneAdded');
       phoneBtn.addEventListener('click', function(){
          const phoneItem = document.getElementById('phoneItem').value++;
          const itemAddedNumber = parseFloat(phoneItem);
-         // const phonePrice = document.getElementById("phonePrice").innerText;
-         // const phonePriceNumber = parseFloat(phonePrice);
-         // const phoneAmount = phonePriceNumber + 1219;
-         // document.getElementById("phonePrice").innerText = phoneAmount;
-
-         // const subtotalPrice = document.getElementById('subtotalPrice').innerText;
-         // const subtotalNumber = parseFloat(subtotalPrice);
-         // const subtotalAmount = subtotalNumber + 1219;
-         // document.getElementById('subtotalPrice').innerText = subtotalAmount;
-
-         // const totalPrice = document.getElementById('totalPrice').innerText;
-         // const totalPriceNumber = parseFloat(totalPrice);
-         // const totalAmount = totalPriceNumber + 1219;
-         // document.getElementById('totalPrice').innerText = totalAmount;
          updatePriceAmount('phonePrice')
          updatePriceAmount('subtotalPrice')
          updatePriceAmount('totalPrice')
@@ -109,6 +96,28 @@
          const total = priceNumber + 1219;
          document.getElementById(id).innerText = total;
       }
+      //iPhone case button event handler
+      const caseBtn = document.getElementById('caseBtn');
+      caseBtn.addEventListener('click', function(){
+         const caseItem = document.getElementById("caseItem").value++;
+         const caseNumber = parseFloat(caseItem);
+         
+         const casePrice = document.getElementById("casePrice").innerText;
+         const casePriceNumber = parseFloat(casePrice);
+         const caseAddedPrice = casePriceNumber + 59;
+         document.getElementById("casePrice").innerText = caseAddedPrice;
+
+         const subtotalPrice = document.getElementById("subtotalPrice").innerText;
+         const subtotalNumber = parseFloat(subtotalPrice);
+         const subtotalAmount = subtotalNumber + 59;
+         document.getElementById("subtotalPrice").innerText = subtotalAmount;
+
+         const totalPrice = document.getElementById("totalPrice").innerText;
+         const totalPriceNumber = parseFloat(totalPrice);
+         const totalPriceAmount = totalPriceNumber + 59;
+         document.getElementById("totalPrice").innerText = totalPriceAmount;
+      })
+
    </script>
 </body>
 
