@@ -26,10 +26,10 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="phoneItem" type="text" class="form-control text-center" value="1">
+                           <button id="phoneAdded" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subtotalPrice">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="totalPrice">1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,39 @@
          </div>
       </div>
    </section>
+
+   <script>
+      const phoneBtn = document.getElementById('phoneAdded');
+      phoneBtn.addEventListener('click', function(){
+         const phoneItem = document.getElementById('phoneItem').value++;
+         const itemAddedNumber = parseFloat(phoneItem);
+         // const phonePrice = document.getElementById("phonePrice").innerText;
+         // const phonePriceNumber = parseFloat(phonePrice);
+         // const phoneAmount = phonePriceNumber + 1219;
+         // document.getElementById("phonePrice").innerText = phoneAmount;
+
+         // const subtotalPrice = document.getElementById('subtotalPrice').innerText;
+         // const subtotalNumber = parseFloat(subtotalPrice);
+         // const subtotalAmount = subtotalNumber + 1219;
+         // document.getElementById('subtotalPrice').innerText = subtotalAmount;
+
+         // const totalPrice = document.getElementById('totalPrice').innerText;
+         // const totalPriceNumber = parseFloat(totalPrice);
+         // const totalAmount = totalPriceNumber + 1219;
+         // document.getElementById('totalPrice').innerText = totalAmount;
+         updatePriceAmount('phonePrice')
+         updatePriceAmount('subtotalPrice')
+         updatePriceAmount('totalPrice')
+
+      })
+
+      function updatePriceAmount(id){
+         const price = document.getElementById(id).innerText;
+         const priceNumber = parseFloat(price);
+         const total = priceNumber + 1219;
+         document.getElementById(id).innerText = total;
+      }
+   </script>
 </body>
 
 </html>
